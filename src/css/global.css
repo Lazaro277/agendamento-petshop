@@ -1,0 +1,74 @@
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  --webbrindes-font-smoothing: antialiased;
+  --moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+
+  --ff-inter: 'Inter', system-ui, sans-serif;
+
+  --fw-base: 400;
+  --fw-md: 600;
+  --fw-bold: 700;
+
+  --fs-sm: .625rem;
+  --fs-2sm: .75rem;
+  --fs-3sm: .875rem;
+  --fs-md: 1rem;
+  --fs-lg: 1.5rem;
+  --fs-xl: 2rem;
+  --fs-2xl: 2.5rem;
+  --fs-3xl: 3rem;
+
+  --px-sm: .75rem;
+  --px-md: 1rem;
+  --px-lg: 2rem;
+
+  --py-sm: .75rem;
+  --py-md: 1rem;
+  --py-lg: 2rem;
+
+  --gap-sm: .75rem;
+  --gap-md: 1rem;
+  --gap-lg: 2rem;
+
+}
+
+html {
+  font-family: var(--ff-inter);
+  font-weight: var(--fw-base);
+  font-size: var(--fs-md);
+  line-height: 1.4;
+  scrollbar-width: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul[role="list"] {
+  list-style: none;
+}
+
+@media (width >=70em) {
+  :root {
+    --fs-sm: .75rem;
+    --fs-2sm: .875rem;
+    --fs-3sm: 1rem;
+    --fs-md: 1.125rem;
+    --fs-lg: 2rem;
+    --fs-xl: 2.5rem;
+    --fs-2xl: 3rem;
+    --fs-3xl: 3.5rem;
+  }
+}
