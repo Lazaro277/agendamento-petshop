@@ -13,21 +13,40 @@
 }
 
 :root {
+  --content-primary: #FFFFFF;
+  --content-secondary: #98959D;
+  --content-tertiary: #666666;
+  --content-brand: #9282FA;
 
+  --background-primary: #151515;
+  --background-secondary: #1E1E1E;
+  --background-tertiary: #23242C;
+  --background-brand: #9282FA;
+  --background-highlights: #BDB4FA;
+
+  --border-primary: #3E3C41;
+  --border-secondary: #86818C;
+  --border-brand: #9282FA;
+  --border-divisor: #353339;
+
+  --accent-blue: #027DF0;
+  --accent-blue-light: #16487A;
+  --accent-yellow: #F0DC02;
+  --accent-yellow-light: #756E1B;
+  --accent-orange: #F09102;
+  --accent-orange-light: #75501B;
+
+  --ff-inter-tight: 'Inter Tight', system-ui, sans-serif;
   --ff-inter: 'Inter', system-ui, sans-serif;
 
   --fw-base: 400;
-  --fw-md: 600;
+  --fw-md: 500;
   --fw-bold: 700;
 
-  --fs-sm: .625rem;
-  --fs-2sm: .75rem;
-  --fs-3sm: .875rem;
-  --fs-md: 1rem;
-  --fs-lg: 1.5rem;
-  --fs-xl: 2rem;
-  --fs-2xl: 2.5rem;
-  --fs-3xl: 3rem;
+  --fs-sm: .75rem;
+  --fs-md: .875rem;
+  --fs-lg: 1rem;
+  --fs-xl: 1.5rem;
 
   --px-sm: .75rem;
   --px-md: 1rem;
@@ -45,9 +64,9 @@
 
 html {
   font-family: var(--ff-inter);
-  font-weight: var(--fw-base);
+  font-weight: var(--fw-md);
   font-size: var(--fs-md);
-  line-height: 1.4;
+  line-height: 1.5;
   scrollbar-width: none;
 }
 
@@ -58,17 +77,4 @@ a {
 
 ul[role="list"] {
   list-style: none;
-}
-
-@media (width >=70em) {
-  :root {
-    --fs-sm: .75rem;
-    --fs-2sm: .875rem;
-    --fs-3sm: 1rem;
-    --fs-md: 1.125rem;
-    --fs-lg: 2rem;
-    --fs-xl: 2.5rem;
-    --fs-2xl: 3rem;
-    --fs-3xl: 3.5rem;
-  }
 }
