@@ -24,14 +24,30 @@
 <body>
   <h1 id="logo">Mundo Pet</h1>
 
-  <h2>Sua agenda</h2>
-  <p>Aqui você pode ver todos os clientes e serviços agendados para hoje</p>
+  <main class="container">
 
-  <input type="date">
+    <h2 class="text-white fs-1 mt-3 fw-semibold">Sua agenda</h2>
+    <p class="text-secondary fw-semibold">Aqui você pode ver todos os clientes e serviços agendados para hoje</p>
 
-  <div id="container-morning">
-    <img src="src/assets/icons/Sun-Fog--Streamline-Solar.svg" alt="">
-  </div>
+    <div class="wrapper-inDate" role="button" tabindex="0" aria-label="Selecionar data">
+      <img src="src/assets/icons/Calendar-Minimalistic--Streamline-Solar.svg" alt="">
+      <input id="appointment-date" type="date">
+      <img src="src/assets/icons/arrow-down.svg" alt="">
+    </div>
+
+    <div id="period-morning">
+      <div class="period-header">
+
+        <img src="src/assets/icons/Sun-Fog--Streamline-Solar.svg" alt="">
+
+        <h4>Manhã</h4>
+
+        <span>09h-12h</span>
+
+      </div>
+
+    </div>
+  </main>
 
   <!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/90b19570b9.js" crossorigin="anonymous"></script>

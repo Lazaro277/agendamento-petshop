@@ -18,7 +18,7 @@
   --content-tertiary: #666666;
   --content-brand: #9282FA;
 
-  --background-primary: #151515;
+  --background-primary: #14151d;
   --background-secondary: #1E1E1E;
   --background-tertiary: #23242C;
   --background-brand: #9282FA;
@@ -60,6 +60,10 @@
   --gap-md: 1rem;
   --gap-lg: 2rem;
 
+}
+
+.text-secondary {
+  color: var(--content-secondary) !important;
 }
 
 html {
