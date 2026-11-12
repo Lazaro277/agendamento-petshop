@@ -1,0 +1,5 @@
+# Dependências instaladas pelo npm
+node_modules/
+
+# Arquivos gerados pelo Webpack
+dist/

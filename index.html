@@ -18,7 +18,8 @@
   <!-- CSS -->
   <link rel="stylesheet" href="src/styles/index.css">
   <!-- JavaScript -->
-  <script src="src/js/scripts.js" defer></script>
+  <script src="node_modules/dayjs/dayjs.min.js"></script>
+  <script type="module" src="src/js/scripts.js"></script>
 </head>
 
 <body>
@@ -37,13 +38,20 @@
 
     <div id="period-morning">
       <div class="period-header">
-
         <img src="src/assets/icons/Sun-Fog--Streamline-Solar.svg" alt="">
-
         <h4>Manhã</h4>
-
         <span>09h-12h</span>
+      </div>
 
+      <div class="period-body">
+        <div class="schedule-item">
+          <span class="scheduling-time">09:00</span>
+          <span class="pet-name">Thor</span>
+          <span class="author-name">/ Fernanda Costa</span><br>
+          <span class="scheduling-description">Vacinação</span><br>
+
+          <a href="#" class="remove-scheduling">Remover agendamento</a>
+        </div>
       </div>
 
     </div>

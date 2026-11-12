@@ -1,0 +1,65 @@
+.period-header {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-primary);
+
+  h4 {
+    margin: 0;
+  }
+
+  span {
+    margin-left: auto;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--content-secondary);
+  }
+}
+
+.period-body {
+  padding: 1.5rem;
+}
+
+.schedule-item {
+  font-size: 1.1rem;
+  position: relative;
+  padding-bottom: 2rem;
+
+  .scheduling-time {
+    font-weight: bold;
+    margin-right: .5rem;
+  }
+
+  .pet-name {
+    font-weight: bold;
+  }
+
+  .author-name {
+    color: var(--content-secondary);
+    font-weight: 600;
+  }
+
+  .scheduling-description {
+    color: var(--content-secondary);
+  }
+
+  .remove-scheduling {
+    position: absolute;
+    font-size: .9rem;
+    color: var(--content-secondary);
+    right: 0;
+    transition: color 500ms ease, text-decoration 500ms ease;
+
+    &:hover {
+      text-decoration: underline;
+      color: white;
+    }
+  }
+}
+
+#period-morning {
+  background-color: var(--background-tertiary);
+  color: white;
+  border-radius: 1rem;
+}
