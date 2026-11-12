@@ -7,6 +7,7 @@
   background: url(../assets/images/logo.svg) no-repeat;
   text-indent: -10000px;
   padding: .8rem;
+  cursor: pointer;
 }
 
 .wrapper-inDate {
