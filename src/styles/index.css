@@ -3,8 +3,14 @@
 @import url(schedule.css);
 
 
+main.container {
+  max-width: 70rem;
+  margin: auto;
+  padding-bottom: 6rem;
+}
+
 #logo {
-  background: url(../assets/images/logo.svg) no-repeat;
+  background: url(../assets/images/logo.svg) no-repeat left/contain;
   text-indent: -10000px;
   padding: .8rem;
   cursor: pointer;
@@ -47,4 +53,20 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   opacity: 0;
   pointer-events: none;
   cursor: pointer;
+}
+
+@media (width >=60em) {
+  main.container {
+    padding-bottom: 4rem;
+  }
+
+  #logo {
+    background-size: contain;
+  }
+
+  #page-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
 }

@@ -27,13 +27,19 @@
 
   <main class="container">
 
-    <h2 class="text-white fs-1 mt-3 fw-semibold">Sua agenda</h2>
-    <p class="text-secondary fw-semibold">Aqui você pode ver todos os clientes e serviços agendados para hoje</p>
+    <div id="page-header">
 
-    <div class="wrapper-inDate" role="button" tabindex="0" aria-label="Selecionar data">
-      <img src="src/assets/icons/Calendar-Minimalistic--Streamline-Solar.svg" alt="">
-      <input id="appointment-date" type="date">
-      <img src="src/assets/icons/arrow-down.svg" alt="">
+      <header>
+        <h2 class="text-white fs-1 mt-3 fw-semibold">Sua agenda</h2>
+        <p class="text-secondary fw-semibold">Aqui você pode ver todos os clientes e serviços agendados para hoje</p>
+      </header>
+
+      <div class="wrapper-inDate" role="button" tabindex="0" aria-label="Selecionar data">
+        <img src="src/assets/icons/Calendar-Minimalistic--Streamline-Solar.svg" alt="">
+        <input id="appointment-date" type="date">
+        <img src="src/assets/icons/arrow-down.svg" alt="">
+      </div>
+
     </div>
 
     <div class="period" id="period-morning">
@@ -94,15 +100,8 @@
         <span>19h-21h</span>
       </div>
 
-      <div class="period-body">
-        <div class="schedule-item">
-          <span class="scheduling-time">09:00</span>
-          <span class="pet-name">Thor</span>
-          <span class="author-name">/ Fernanda Costa</span><br>
-          <span class="scheduling-description">Vacinação</span><br>
-
-          <a href="#" class="remove-scheduling">Remover agendamento</a>
-        </div>
+      <div class="text-center py-3 text-secondary">
+        Nenhum agendamento
       </div>
 
     </div>

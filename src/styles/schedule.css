@@ -90,3 +90,15 @@
     }
   }
 }
+
+@media (width >=60em) {
+  #new-scheduling {
+    text-align: end;
+    background-color: transparent;
+
+    button {
+      margin: .5rem 1rem;
+      box-shadow: 0 0 50px #9282fac4;
+    }
+  }
+}
