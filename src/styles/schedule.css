@@ -58,8 +58,9 @@
   }
 }
 
-#period-morning {
+.period {
   background-color: var(--background-tertiary);
   color: white;
   border-radius: 1rem;
+  margin-bottom: 1rem;
 }
