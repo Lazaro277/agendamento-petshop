@@ -66,33 +66,19 @@
 }
 
 
-#new-scheduling {
-  position: fixed;
+#new-scheduling-container {
+  position: absolute;
   bottom: 0;
+  left: 0;
   background-color: var(--background-tertiary);
   width: 100%;
   padding: 1rem;
   text-align: center;
-
-
-  button {
-    background-color: var(--background-brand);
-    padding: 1rem 1.5rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    border-radius: .5rem;
-    border: none;
-    box-shadow: 0 0 50px #9282fa59;
-    transition: background 500ms ease;
-
-    &:hover {
-      background-color: var(--background-highlights);
-    }
-  }
+  z-index: 1;
 }
 
 @media (width >=60em) {
-  #new-scheduling {
+  #new-scheduling-container {
     text-align: end;
     background-color: transparent;
 

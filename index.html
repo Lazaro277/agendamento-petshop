@@ -35,7 +35,7 @@
       </header>
 
       <div class="wrapper-inDate" role="button" tabindex="0" aria-label="Selecionar data">
-        <img src="src/assets/icons/Calendar-Minimalistic--Streamline-Solar.svg" alt="">
+        <img src="src/assets/icons/calendar.svg" alt="">
         <input id="appointment-date" type="date">
         <img src="src/assets/icons/arrow-down.svg" alt="">
       </div>
@@ -44,7 +44,7 @@
 
     <div class="period" id="period-morning">
       <div class="period-header">
-        <img src="src/assets/icons/Sun-Fog--Streamline-Solar.svg" alt="">
+        <img src="src/assets/icons/sun.svg" alt="">
         <h4>Manhã</h4>
         <span>09h-12h</span>
       </div>
@@ -64,7 +64,7 @@
 
     <div class="period" id="period-afternoon">
       <div class="period-header">
-        <img src="src/assets/icons/Cloud-Sun-4--Streamline-Solar.svg" alt="">
+        <img src="src/assets/icons/cloud.svg" alt="">
         <h4>Tarde</h4>
         <span>13h-18h</span>
       </div>
@@ -95,7 +95,7 @@
 
     <div class="period" id="period-night">
       <div class="period-header">
-        <img src="src/assets/icons/Moon-Stars--Streamline-Solar.svg" alt="">
+        <img src="src/assets/icons/moon.svg" alt="">
         <h4>Noite</h4>
         <span>19h-21h</span>
       </div>
@@ -106,9 +106,62 @@
 
     </div>
 
+    <div id="new-scheduling-container">
+      <button id="new-scheduling-button" class="btn-default">Novo Agendamento</button>
+    </div>
   </main>
-  <div id="new-scheduling">
-    <button>Novo Agendamento</button>
+
+
+  <div id="modal-new-scheduling">
+
+    <div id="modal-body">
+      <img src="src/assets/icons/close.svg" alt="" id="close">
+
+
+      <h2 class="text-white fs-1 mt-3 fw-semibold">Agende um atendimento</h2>
+      <p class="text-secondary fw-semibold">Preencha os dados do cliente para realizar o agendamento:</p>
+
+      <label for="schedule-tutor-name">Nome do tutor</label>
+      <div class="wrapper-inText">
+        <img src="src/assets/icons/user.svg" alt="">
+        <input id="schedule-tutor-name" type="text" placeholder="João Gustavo">
+      </div>
+
+      <label for="schedule-pet-name">Nome do pet</label>
+      <div class="wrapper-inText">
+        <img src="src/assets/icons/pet-paw.svg" alt="">
+        <input id="schedule-pet-name" type="text" placeholder="Akira">
+      </div>
+
+      <label for="schedule-tutor-number">Telefone</label>
+      <div class="wrapper-inText">
+        <img src="src/assets/icons/phone.svg" alt="">
+        <input id="schedule-tutor-number" type="text" placeholder="(99) 9 9999-9999">
+      </div>
+
+      <label for="schedule-description">Descrição do serviço</label>
+      <div class="wrapper-inText">
+        <textarea name="schedule-description" id="schedule-description" placeholder="Banho e tosa"></textarea>
+      </div>
+
+      <label for="schedule-date">Data</label>
+      <div class="wrapper-inDate" role="button" tabindex="0" aria-label="Selecionar data">
+        <img src="src/assets/icons/calendar.svg" alt="">
+        <input id="schedule-date" type="date">
+        <img src="src/assets/icons/arrow-down.svg" alt="">
+      </div>
+
+      <label for="schedule-time">Hora</label>
+      <div class="wrapper-inTime" role="button" tabindex="0" aria-label="Selecionar hora">
+        <img src="src/assets/icons/clock.svg" alt="">
+        <input id="schedule-time" type="time">
+        <img src="src/assets/icons/arrow-down.svg" alt="">
+      </div>
+
+
+      <button id="new-scheduling-button" class="btn-default">Agendar</button>
+
+    </div>
   </div>
 
   <!-- Font Awesome -->

@@ -1,0 +1,15 @@
+.btn-default {
+  background-color: var(--background-brand);
+  padding: 1rem 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: .5rem;
+  border: none;
+  box-shadow: 0 0 50px #9282fa59;
+  transition: background 500ms ease;
+
+  &:hover {
+    background-color: var(--background-highlights);
+  }
+
+}

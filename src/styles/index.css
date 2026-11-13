@@ -1,12 +1,14 @@
 @import url(global.css);
 @import url(utility.css);
 @import url(schedule.css);
+@import url(modal.css);
 
 
 main.container {
   max-width: 70rem;
   margin: auto;
   padding-bottom: 6rem;
+  position: relative;
 }
 
 #logo {
