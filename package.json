@@ -1,6 +1,6 @@
 {
-  "name": "hairday",
-  "description": "Aplicação Web para agendamento de corte de cabelo.",
+  "name": "agendamento-petshop",
+  "description": "Aplicação Web para agendamento de atendimentos de um petshop.",
   "author": "Lázaro Messias",
   "scripts": {
     "build": "webpack --mode production",
@@ -8,7 +8,8 @@
     "server": "json-server server.json --port 3333"
   },
   "dependencies": {
-    "dayjs": "^1.11.23"
+    "dayjs": "^1.11.23",
+    "json-server": "^1.0.0-beta.15"
   },
   "devDependencies": {
     "@babel/core": "^8.1.2",

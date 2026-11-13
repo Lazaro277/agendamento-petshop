@@ -2,7 +2,6 @@ main.container {
   max-width: 70rem;
   margin: auto;
   padding-bottom: 6rem;
-  position: relative;
 }
 
 #logo {
