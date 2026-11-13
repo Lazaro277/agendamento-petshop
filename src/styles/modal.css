@@ -2,20 +2,35 @@
   height: 100%;
   width: 100%;
   position: absolute;
+  justify-items: center;
   top: 0;
   background-color: #14151dcf;
   padding: 1rem;
   padding-top: 5rem;
   z-index: 2;
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 300ms ease, transform 300ms ease;
+
+  @media (width >=60em) {
+    padding-top: 2rem;
+  }
+
+  &.modal-hide {
+    opacity: 0;
+    transform: scale(0);
+  }
 
   #modal-body {
+    width: 100%;
+    max-width: 50rem;
     background-color: var(--background-tertiary);
     border-radius: .7rem;
     padding: 1rem;
     padding-top: 2rem;
     position: relative;
 
-    #close {
+    #close-modal {
       position: absolute;
       right: .5rem;
       top: .5rem;
@@ -69,6 +84,7 @@
       width: 100%;
       background-color: var(--background-tertiary);
       margin-top: .3rem;
+      margin-bottom: 0;
 
       img:last-child {
         margin-left: auto;
@@ -110,7 +126,8 @@
     }
 
     .btn-default {
-      margin-block: 2rem;
+      margin-top: 2rem;
+      padding-inline: 3rem;
       display: flex;
       justify-self: end;
     }
