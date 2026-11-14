@@ -103,16 +103,23 @@
       background-color: var(--background-tertiary);
       margin-top: .3rem;
 
-      input {
+      input,
+      select {
         width: 100%;
         background-color: transparent;
         border: none;
         color: var(--content-secondary);
         font-size: 1.3rem;
-        cursor: text;
+        cursor: pointer;
+        appearance: none;
 
         &:focus {
           outline: none;
+        }
+
+        option {
+          background-color: var(--background-tertiary);
+          color: var(--content-secondary);
         }
 
         &::-webkit-calendar-picker-indicator {

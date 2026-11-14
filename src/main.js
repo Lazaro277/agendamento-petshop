@@ -13,4 +13,6 @@ import "./styles/utility.css"
 
 //JS
 import "./utils/modal.js"
-import "./utils/show-calendar-time.js"
+import "./utils/show-calendar.js"
+import "./modules/form/submit.js"
+import "./modules/page-load.js" 

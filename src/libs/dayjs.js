@@ -1,3 +1,4 @@
 import dayjs from "dayjs"
+import "dayjs/locale/pt-br"
 
-window.dayjs = dayjs
+dayjs.locale("pt-br")
