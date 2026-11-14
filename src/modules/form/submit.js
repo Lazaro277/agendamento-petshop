@@ -16,10 +16,11 @@ inDate.addEventListener('change', () => {
 
 // Data atual para o input
 const inputToday = dayjs(new Date()).format('YYYY-MM-DD')
+const inputMax = dayjs(new Date()).add(2, 'year').format('YYYY-MM-DD')
 
-// Carrega a data atual e define a data mínima nos inputs date
+// Carrega a data atual e define a data mínima e máxima nos inputs date
 inDates.forEach((input) => {
   input.value = inputToday;
   input.min = inputToday;
+  input.max = inputMax;
 });
-

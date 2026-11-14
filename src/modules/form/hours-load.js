@@ -3,6 +3,16 @@ import { openingHours } from "../../utils/opening-hours.js";
 const inTime = document.querySelector('#schedule-time');
 const wrapperInTime = document.querySelector('.wrapper-inTime');
 
+function handleTimeWrapperClick(event) {
+  if (event.target === inTime) return
+
+  inTime.focus()
+
+  if (typeof inTime.showPicker === 'function') {
+    inTime.showPicker()
+  }
+}
+
 export function hoursLoad({ date }) {
   const opening = openingHours.map((hour) => {
     // recupera somente a hora
@@ -19,6 +29,9 @@ export function hoursLoad({ date }) {
 
   let countHoursAvailable = false
   inTime.innerHTML = ''
+  inTime.disabled = true
+  wrapperInTime.removeEventListener('click', handleTimeWrapperClick)
+
   // crie as options do select com os horarios disponíveis
   opening.forEach(({ hour, available }) => {
     if (available) {
@@ -33,6 +46,15 @@ export function hoursLoad({ date }) {
 
   });
 
+  if (countHoursAvailable) {
+    const option = document.createElement('option');
+    option.value = '';
+    option.textContent = 'Horários disponíveis para o dia selecionado';
+    option.disabled = true;
+    option.style.color = 'white'
+    inTime.prepend(option);
+  }
+
   if (!countHoursAvailable) {
     const option = document.createElement('option');
     option.value = "No available times.";
@@ -41,17 +63,9 @@ export function hoursLoad({ date }) {
     inTime.disabled = true
   }
 
+
   if (!inTime.disabled) {
-    console.log('aui')
-    wrapperInTime.addEventListener('click', (event) => {
-      if (event.target === inTime) return
-
-      inTime.focus()
-
-      if (typeof inTime.showPicker === 'function') {
-        inTime.showPicker()
-      }
-    })
+    wrapperInTime.addEventListener('click', handleTimeWrapperClick)
   }
 
 }
