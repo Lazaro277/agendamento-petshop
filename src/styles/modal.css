@@ -58,7 +58,7 @@
         width: 100%;
         background: transparent;
         border: none;
-        color: var(--content-secondary);
+        color: white;
         font-size: 1.3rem;
 
         &:focus {
@@ -76,6 +76,7 @@
         font-size: 1.3rem;
         background-color: transparent;
         border: none;
+        color: white;
       }
     }
 
@@ -85,6 +86,10 @@
       background-color: var(--background-tertiary);
       margin-top: .3rem;
       margin-bottom: 0;
+
+      input {
+        color: white;
+      }
 
       img:last-child {
         margin-left: auto;
@@ -102,16 +107,25 @@
       width: 100%;
       background-color: var(--background-tertiary);
       margin-top: .3rem;
+      cursor: pointer;
 
-      input,
+      &:has(select:disabled) {
+        cursor: initial;
+      }
+
       select {
         width: 100%;
         background-color: transparent;
         border: none;
-        color: var(--content-secondary);
+        color: white;
         font-size: 1.3rem;
         cursor: pointer;
         appearance: none;
+
+        &:disabled {
+          color: var(--content-secondary);
+          cursor: initial;
+        }
 
         &:focus {
           outline: none;
@@ -120,10 +134,10 @@
         option {
           background-color: var(--background-tertiary);
           color: var(--content-secondary);
-        }
 
-        &::-webkit-calendar-picker-indicator {
-          display: none;
+          .option-default {
+            color: white !important;
+          }
         }
       }
 

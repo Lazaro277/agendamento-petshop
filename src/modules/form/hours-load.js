@@ -3,6 +3,7 @@ import { openingHours } from "../../utils/opening-hours.js";
 const inTime = document.querySelector('#schedule-time');
 const wrapperInTime = document.querySelector('.wrapper-inTime');
 
+// função para clique no wrapper abrir o calendario
 function handleTimeWrapperClick(event) {
   if (event.target === inTime) return
 
@@ -38,6 +39,7 @@ export function hoursLoad({ date }) {
       const option = document.createElement('option');
       option.value = hour;
       option.textContent = hour;
+      option.style.color = 'white'
       inTime.append(option);
       countHoursAvailable = true
       inTime.disabled = false
@@ -46,15 +48,18 @@ export function hoursLoad({ date }) {
 
   });
 
+  // cria uma option informando que só estão aparecendo os horarios disponiveis para aquele dia selecionado
   if (countHoursAvailable) {
     const option = document.createElement('option');
     option.value = '';
-    option.textContent = 'Horários disponíveis para o dia selecionado';
+    option.textContent = 'Horários disponíveis para o dia selecionado:';
     option.disabled = true;
-    option.style.color = 'white'
+    option.style.color = 'black'
+    option.style.backgroundColor = '#9282FA'
     inTime.prepend(option);
   }
 
+  // se não tem nenhum horário aquele dia, mostra essa mensagem e deixa o select disabled
   if (!countHoursAvailable) {
     const option = document.createElement('option');
     option.value = "No available times.";
@@ -63,7 +68,7 @@ export function hoursLoad({ date }) {
     inTime.disabled = true
   }
 
-
+  // só se tiver algum horario, esse evento existe
   if (!inTime.disabled) {
     wrapperInTime.addEventListener('click', handleTimeWrapperClick)
   }
