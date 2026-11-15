@@ -3,9 +3,11 @@ const inDescription = document.querySelector('#schedule-description');
 const inTutorName = document.querySelector('#schedule-tutor-name');
 const inDates = document.querySelectorAll('input[type="date"]');
 const inPetName = document.querySelector('#schedule-pet-name');
+import { scheduleNew } from "../../services/schedule-new.js";
+import { scheduleLoadByDay } from "../schedules/load-by-day.js";
 const inTime = document.querySelector('#schedule-time');
 const inDate = document.querySelector('#schedule-date');
-import { hoursLoad } from "./hours-load.js";
+import { scheduleDay } from "../schedules/load.js";
 const form = document.querySelector("form")
 import dayjs from "dayjs";
 
@@ -25,7 +27,7 @@ inTutorNumber.addEventListener('input', (event) => {
   }
 })
 
-form.onsubmit = (event) => {
+form.onsubmit = async (event) => {
   // evita reload na pagina
   event.preventDefault()
 
@@ -76,24 +78,32 @@ form.onsubmit = (event) => {
     //recupera somente a hora 
     const [hour] = hourSelected.split(':')
 
-    // insere a hora na data para salvar
-    const when = dayjs(inDate.value).add(hour, "hour")
+    // combina a data e o horário selecionados no fuso local
+    const when = dayjs(`${inDate.value}T${hourSelected}`)
 
-    // Gera um ID
-    const id = new Date().getTime()
+    // envias o agendamento para a api
+    await scheduleNew({ tutorName, petName, tutorNumber, description, when })
 
-    console.log(id)
+    // recarrega datas e horarios
+    await scheduleDay()
+    await scheduleLoadByDay()
+
+    // limpa os inputs
+    inTutorName.value = ''
+    inPetName.value = ''
+    inTutorNumber.value = ''
+    inDescription.value = ''
+
+
+    // Data atual para o input
+    const inputToday = dayjs(new Date()).format('YYYY-MM-DD')
+    inDate.value = inputToday;
 
   } catch (error) {
     alert("Não foi possível realizar o agendamento")
     console.log(error)
   }
 }
-
-inDate.addEventListener('change', () => {
-  const date = inDate.value
-  hoursLoad({ date })
-})
 
 // Data atual para o input
 const inputToday = dayjs(new Date()).format('YYYY-MM-DD')

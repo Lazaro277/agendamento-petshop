@@ -1,3 +1,61 @@
 {
-  "schedules": []
+  "schedules": [
+    {
+      "tutorName": "Joao",
+      "petName": "Bob",
+      "tutorNumber": "(32) 9 9999-9999",
+      "description": "Tosa",
+      "when": "2026-11-15T10:00:00.000Z",
+      "id": "yasya7pSY3A"
+    },
+    {
+      "tutorName": "Kaio",
+      "petName": "Marlo",
+      "tutorNumber": "(32) 9 9999-9999",
+      "description": "BAnho",
+      "when": "2026-11-15T17:00:00.000Z",
+      "id": "KkatrGO1n3M"
+    },
+    {
+      "tutorName": "asdf",
+      "petName": "asdf",
+      "tutorNumber": "(32) 9 9999-9999",
+      "description": "asdf",
+      "when": "2026-11-16T00:00:00.000Z",
+      "id": "z3xznw1D-Vo"
+    },
+    {
+      "tutorName": "asdf",
+      "petName": "asdf",
+      "tutorNumber": "(32) 9 9999-9999",
+      "description": "asdf",
+      "when": "2026-11-16T20:00:00.000Z",
+      "id": "7dnoqYIEqt0"
+    },
+    {
+      "tutorName": "asdf",
+      "petName": "asdf",
+      "tutorNumber": "(32) 9 9999-9999",
+      "description": "asdf",
+      "when": "2026-11-27T12:00:00.000Z",
+      "id": "ExFU3M6wcE8"
+    },
+    {
+      "tutorName": "asdf",
+      "petName": "asdf",
+      "tutorNumber": "(32) 9 9999-9999",
+      "description": "asdf",
+      "when": "2026-11-27T18:00:00.000Z",
+      "id": "Vc1Yo25MIh8"
+    },
+    {
+      "tutorName": "asdf",
+      "petName": "asdf",
+      "tutorNumber": "(32) 9 9999-9999",
+      "description": "asdf",
+      "when": "2026-11-27T23:00:00.000Z",
+      "id": "QH5jhFO4QvY"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

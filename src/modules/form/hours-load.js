@@ -14,17 +14,21 @@ function handleTimeWrapperClick(event) {
   }
 }
 
-export function hoursLoad({ date }) {
-  const opening = openingHours.map((hour) => {
-    // recupera somente a hora
-    const [scheduleHour] = hour.split(":")
+export function hoursLoad({ date, dailySchedules }) {
+  // se exixte um agendamento com a hora, ela não vai ser criada
+  // obtem a lista dos horarios ocupados
+  const unavailableHours = dailySchedules.map((schedule) => dayjs(schedule.when).format("HH:mm"))
 
+  const opening = openingHours.map((hour) => {
     // adiciona a hora na date e verifica se já passou
-    const isHourPast = dayjs(date).add(scheduleHour, "hour").isAfter(dayjs())
+    const scheduleDateTime = dayjs(`${date}T${hour}`)
+    const isHourPast = scheduleDateTime.isBefore(dayjs())
+
+    const available = !unavailableHours.includes(hour) && !isHourPast
 
     return {
       hour,
-      available: isHourPast
+      available
     }
   })
 
@@ -72,5 +76,6 @@ export function hoursLoad({ date }) {
   if (!inTime.disabled) {
     wrapperInTime.addEventListener('click', handleTimeWrapperClick)
   }
+
 
 }

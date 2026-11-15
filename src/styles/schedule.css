@@ -19,23 +19,24 @@
 
 .period-body {
   padding: 1.5rem;
+  padding-bottom: 0;
 }
 
 .schedule-item {
   font-size: 1.1rem;
   position: relative;
-  padding-bottom: 2rem;
+  padding-bottom: 1.5rem;
 
   .scheduling-time {
     font-weight: bold;
-    margin-right: .5rem;
+    margin-right: 1rem;
   }
 
   .pet-name {
     font-weight: bold;
   }
 
-  .author-name {
+  .tutor-name {
     color: var(--content-secondary);
     font-weight: 600;
   }
@@ -49,7 +50,9 @@
     font-size: .9rem;
     color: var(--content-secondary);
     right: 0;
+    bottom: 1.3rem;
     transition: color 500ms ease, text-decoration 500ms ease;
+    cursor: pointer;
 
     &:hover {
       text-decoration: underline;
