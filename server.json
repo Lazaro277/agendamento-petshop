@@ -29,14 +29,6 @@
       "petName": "asdf",
       "tutorNumber": "(32) 9 9999-9999",
       "description": "asdf",
-      "when": "2026-11-16T20:00:00.000Z",
-      "id": "7dnoqYIEqt0"
-    },
-    {
-      "tutorName": "asdf",
-      "petName": "asdf",
-      "tutorNumber": "(32) 9 9999-9999",
-      "description": "asdf",
       "when": "2026-11-27T12:00:00.000Z",
       "id": "ExFU3M6wcE8"
     },
@@ -47,22 +39,6 @@
       "description": "asdf",
       "when": "2026-11-27T18:00:00.000Z",
       "id": "Vc1Yo25MIh8"
-    },
-    {
-      "tutorName": "asdf",
-      "petName": "asdf",
-      "tutorNumber": "(32) 9 9999-9999",
-      "description": "asdf",
-      "when": "2026-11-27T23:00:00.000Z",
-      "id": "QH5jhFO4QvY"
-    },
-    {
-      "tutorName": "asdf",
-      "petName": "asdf",
-      "tutorNumber": "(32) 9 9999-9999",
-      "description": "asdf",
-      "when": "2026-11-16T21:00:00.000Z",
-      "id": "R-63xaVow04"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
