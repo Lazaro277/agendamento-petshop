@@ -8,6 +8,7 @@ import { scheduleLoadByDay } from "../schedules/load-by-day.js";
 const inTime = document.querySelector('#schedule-time');
 const inDate = document.querySelector('#schedule-date');
 import { scheduleDay } from "../schedules/load.js";
+import { showToast } from "../../utils/notification.js";
 const form = document.querySelector("form")
 import dayjs from "dayjs";
 
@@ -31,76 +32,74 @@ form.onsubmit = async (event) => {
   // evita reload na pagina
   event.preventDefault()
 
-  inTutorName.value = 'asdf'
-  inPetName.value = 'asdf'
-  inTutorNumber.value = '(32) 9 9999-9999'
-  inDescription.value = 'asdf'
-
   try {
+    let isValid = true
 
     // recupera o nome do tutor
     const tutorName = inTutorName.value.trim()
 
-    if (!tutorName) {
-      alert("Informe o nome do cliente")
-    }
-
     // recupera o nome do pet
     const petName = inPetName.value.trim()
-
-    if (!petName) {
-      alert("Informe o nome do pet")
-    }
 
     // recupera o numero de telefone e verifica se é valido
     const tutorNumber = inTutorNumber.value.trim()
     const numberRegex = /^\(?\d{2}\)?\s?9?\s?\d{4}-?\d{4}$/;
     const numberValid = numberRegex.test(tutorNumber);
 
-    if (!numberValid) {
-      alert("Informe um número válido, no formato: (99) 9 9999-9999")
-    }
-
     // recupera a descrição do atendimento
     const description = inDescription.value
-
-    if (!description) {
-      alert("Informe uma descrição")
-    }
 
     //recupera a hora selecionada
     const hourSelected = inTime.value
 
-    if (!hourSelected) {
-      alert("Selecione uma hora")
+
+    // verifica os campos do form
+    if (!tutorName) {
+      showToast('danger', 'Informe o nome do cliente')
+      isValid = false
+    } else if (!petName) {
+      showToast('danger', 'Informe o nome do pet')
+      isValid = false
+    } else if (!numberValid) {
+      showToast('danger', 'Informe um número válido, no formato: (99) 9 9999-9999')
+      isValid = false
+    } else if (!description) {
+      showToast('danger', 'Informe uma descrição')
+      isValid = false
+    } else if (!hourSelected) {
+      showToast('danger', 'Selecione uma hora')
+      isValid = false
     }
 
-    //recupera somente a hora 
-    const [hour] = hourSelected.split(':')
+    if (isValid) {
 
-    // combina a data e o horário selecionados no fuso local
-    const when = dayjs(`${inDate.value}T${hourSelected}`)
+      //recupera somente a hora 
+      const [hour] = hourSelected.split(':')
 
-    // envias o agendamento para a api
-    await scheduleNew({ tutorName, petName, tutorNumber, description, when })
+      // combina a data e o horário selecionados no fuso local
+      const when = dayjs(`${inDate.value}T${hourSelected}`)
 
-    // recarrega datas e horarios
-    await scheduleDay()
-    await scheduleLoadByDay()
+      // envias o agendamento para a api
+      await scheduleNew({ tutorName, petName, tutorNumber, description, when })
 
-    // limpa os inputs
-    inTutorName.value = ''
-    inPetName.value = ''
-    inTutorNumber.value = ''
-    inDescription.value = ''
+      // recarrega datas e horarios
+      await scheduleDay()
+      await scheduleLoadByDay()
+
+      // limpa os inputs
+      inTutorName.value = ''
+      inPetName.value = ''
+      inTutorNumber.value = ''
+      inDescription.value = ''
 
 
-    // Data atual para o input
-    const inputToday = dayjs(new Date()).format('YYYY-MM-DD')
-    inDate.value = inputToday;
+      // Data atual para o input
+      const inputToday = dayjs(new Date()).format('YYYY-MM-DD')
+      inDate.value = inputToday;
+    }
 
   } catch (error) {
-    alert("Não foi possível realizar o agendamento")
+    showToast('danger', 'Não foi possível realizar o agendamento')
     console.log(error)
   }
 }

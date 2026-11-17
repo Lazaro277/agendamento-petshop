@@ -15,7 +15,6 @@ import "./styles/notification.css"
 //JS
 import "./utils/modal.js"
 import "./utils/show-calendar.js"
-import "./utils/notification.js"
 import "./modules/page-load.js"
 import "./modules/form/submit.js"
 import "./modules/form/date-change.js"
