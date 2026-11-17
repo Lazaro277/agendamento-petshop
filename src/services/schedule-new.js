@@ -3,7 +3,7 @@ import { showToast } from "../utils/notification.js";
 
 export async function scheduleNew({ tutorName, petName, tutorNumber, description, when }) {
   try {
-    // faz a requisição para enviar os dados do agendamento
+    // Envia os dados do agendamento para a API.
     const response = await fetch(`${apiConfig.baseURL}/schedules`, {
       method: 'POST',
       headers: {
@@ -20,5 +20,6 @@ export async function scheduleNew({ tutorName, petName, tutorNumber, description
   } catch (error) {
     console.log(error)
     showToast('danger', 'Não foi possível agendar. Tente novamente')
+    throw error
   }
 }
