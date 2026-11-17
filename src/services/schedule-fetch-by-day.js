@@ -1,5 +1,6 @@
 import dayjs from "dayjs"
 import { apiConfig } from "./api-config"
+import { showToast } from "../utils/notification.js";
 
 export async function scheduleFetchByDay({ dateSelected }) {
   try {
@@ -15,6 +16,6 @@ export async function scheduleFetchByDay({ dateSelected }) {
     return dailySchedules
   } catch (error) {
     console.log(error)
-    alert('Não foi possível buscar os agendamentos do dia selecionado')
+    showToast('danger', 'Não foi possível buscar os agendamentos do dia selecionado')
   }
 }

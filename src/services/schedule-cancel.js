@@ -1,4 +1,5 @@
 import { apiConfig } from "./api-config.js";
+import { showToast } from "../utils/notification.js";
 
 export async function scheduleCancel({ id }) {
   try {
@@ -6,9 +7,9 @@ export async function scheduleCancel({ id }) {
       method: "DELETE"
     })
 
-    alert('Agendamento cancelado com sucesso!')
+    showToast('success', 'Agendamento cancelado com sucesso!')
   } catch (error) {
     console.log(error)
-    alert('Não foi possível cancelar o agendamento.')
+    showToast('danger', 'Não foi possível cancelar o agendamento.')
   }
 }

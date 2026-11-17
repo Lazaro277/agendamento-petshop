@@ -1,4 +1,5 @@
 import dayjs from "dayjs";
+import { showToast } from "../../utils/notification.js";
 
 // seleciona as seções
 const periodMorning = document.querySelector('#period-morning .period-body')
@@ -77,6 +78,6 @@ export function schedulesShow({ dailySchedules }) {
 
   } catch (error) {
     console.log(error)
-    alert('Não foi possível exibir os agendamentos')
+    showToast('danger', 'Não foi possível exibir os agendamentos')
   }
 }

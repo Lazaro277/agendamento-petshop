@@ -132,14 +132,26 @@
     </div>
   </div>
 
-  <!-- Toast alert -->
+  <!-- Toast notification -->
   <div id="liveToast" class="toast position-absolute top-0 start-50 translate-middle-x mt-3 rounded-3" role="alert"
     aria-live="assertive" aria-atomic="true" style="z-index: 1060;">
-    <div class="d-flex rounded-3">
+    <div>
       <div class="toast-body text-white" id="toast-body">
       </div>
       <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
         aria-label="Close"></button>
+    </div>
+  </div>
+
+
+  <!-- Toast confirm -->
+  <div id="toastConfirm" class="toast" role="alert" aria-live="assertive" aria-atomic="true" style="z-index: 1060;">
+    <div class="toast-body">
+      <span id="toast-confirm-message"></span>
+      <div class="mt-2 pt-2 border-top border-secondary">
+        <button type="button" class="btn btn-success btn-sm" data-bs-dismiss="toast" id="btn-confirm">Excluir</button>
+        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="toast" id="btn-cancel">Cancelar</button>
+      </div>
     </div>
   </div>
 

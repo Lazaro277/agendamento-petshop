@@ -1,6 +1,7 @@
-import { scheduleCancel } from "../../services/schedule-cancel.js"
 import { scheduleDay } from "./load.js"
 import { scheduleLoadByDay } from "./load-by-day.js"
+import { showConfirm } from "../../utils/confirm.js"
+import { scheduleCancel } from "../../services/schedule-cancel.js"
 
 const periods = document.querySelectorAll('.period')
 
@@ -16,10 +17,20 @@ periods.forEach((period) => {
 
       // confirma se o id existe
       if (id) {
-        const isConfirm = confirm('Tem certeza que deseja excluir esse agendamento?')
 
+
+        // faz a confirmação do cancelamento
+        const confirmed = await showConfirm(
+          'warning',
+          'Deseja realmente cancelar este agendamento?'
+        )
+
+
+        if (!confirmed) return
+
+        console.log(confirmed)
         // confirma se o usuário quer cancelar
-        if (isConfirm) {
+        if (confirmed) {
           // faz a requisição na API para cancelar
           await scheduleCancel({ id })
 

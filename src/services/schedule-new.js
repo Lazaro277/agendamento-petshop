@@ -1,4 +1,5 @@
 import { apiConfig } from "./api-config.js";
+import { showToast } from "../utils/notification.js";
 
 export async function scheduleNew({ tutorName, petName, tutorNumber, description, when }) {
   try {
@@ -15,9 +16,9 @@ export async function scheduleNew({ tutorName, petName, tutorNumber, description
       throw new Error(`Erro ao criar agendamento: ${response.status}`)
     }
 
-    alert('agendamento realizado com sucesso')
+    showToast('success', 'Agendamento realizado com sucesso')
   } catch (error) {
     console.log(error)
-    alert("Não foi possível agendar. Tente novamente")
+    showToast('danger', 'Não foi possível agendar. Tente novamente')
   }
 }
