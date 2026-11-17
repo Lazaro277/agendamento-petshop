@@ -55,9 +55,25 @@ export function schedulesShow({ dailySchedules }) {
       } else {
         periodNight.append(scheduleItem)
       }
-
-
     })
+
+
+    const createNoAppointment = () => {
+      const noAppointment = document.createElement('div')
+      noAppointment.classList.add('text-center', 'text-secondary')
+      noAppointment.textContent = 'Nenhum agendamento.'
+      return noAppointment
+    }
+
+    if (periodMorning.innerHTML == '') {
+      periodMorning.append(createNoAppointment())
+    }
+    if (periodAfternoon.innerHTML == '') {
+      periodAfternoon.append(createNoAppointment())
+    }
+    if (periodNight.innerHTML == '') {
+      periodNight.append(createNoAppointment())
+    }
 
   } catch (error) {
     console.log(error)
