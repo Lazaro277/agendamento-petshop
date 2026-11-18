@@ -1,5 +1,5 @@
-import dayjs from "dayjs";
 import { showToast } from "../../utils/notification.js";
+import { scheduleHour, scheduleTime as formatScheduleTime } from "../../utils/schedule-date-time.js";
 
 // seleciona as seções
 const periodMorning = document.querySelector('#period-morning .period-body')
@@ -37,7 +37,7 @@ export function schedulesShow({ dailySchedules }) {
       scheduleItem.setAttribute("data-id", schedule.id)
 
       // adicionando as informações
-      scheduleTime.textContent = dayjs(schedule.when).format("HH:mm")
+      scheduleTime.textContent = formatScheduleTime(schedule.when)
       petName.textContent = schedule.petName
       tutorName.textContent = ' / ' + schedule.tutorName
       description.textContent = schedule.description
@@ -46,7 +46,7 @@ export function schedulesShow({ dailySchedules }) {
       scheduleItem.append(scheduleTime, petName, tutorName, firstBrTag, description, secondBrTag, removeScheduling)
 
       // obtem somente a hora para verificar qual seção será inserido
-      const hour = dayjs(schedule.when).hour()
+      const hour = scheduleHour(schedule.when)
 
       // adiciona na seção correta
       if (hour <= 12) {

@@ -88,40 +88,41 @@
       <h2 class="text-white fs-1 mt-3 fw-semibold">Agende um atendimento</h2>
       <p class="text-secondary fw-semibold">Preencha os dados do cliente para realizar o agendamento:</p>
 
-      <form>
+      <form novalidate>
         <div class="wrapper-inText">
           <img src="src/assets/icons/user.svg" alt="Tutor">
-          <input id="schedule-tutor-name" type="text" placeholder="João Gustavo">
+          <input id="schedule-tutor-name" type="text" placeholder="João Gustavo" required>
         </div>
 
         <label for="schedule-pet-name">Nome do pet</label>
         <div class="wrapper-inText">
           <img src="src/assets/icons/pet-paw.svg" alt="Pet">
-          <input id="schedule-pet-name" type="text" placeholder="Akira">
+          <input id="schedule-pet-name" type="text" placeholder="Akira" required>
         </div>
 
         <label for="schedule-tutor-number">Telefone</label>
         <div class="wrapper-inText">
           <img src="src/assets/icons/phone.svg" alt="Telefone">
-          <input id="schedule-tutor-number" type="text" placeholder="(99) 9 9999-9999">
+          <input id="schedule-tutor-number" type="text" placeholder="(99) 9 9999-9999" required>
         </div>
 
         <label for="schedule-description">Descrição do serviço</label>
         <div class="wrapper-inText">
-          <textarea name="schedule-description" id="schedule-description" placeholder="Banho e tosa"></textarea>
+          <textarea name="schedule-description" id="schedule-description" placeholder="Banho e tosa"
+            required></textarea>
         </div>
 
         <label for="schedule-date">Data</label>
         <div class="wrapper-inDate" role="button" tabindex="0" aria-label="Selecionar data">
           <img src="src/assets/icons/calendar.svg" alt="Calendário">
-          <input id="schedule-date" type="date">
+          <input id="schedule-date" type="date" required>
           <img src="src/assets/icons/arrow-down.svg" alt="Abrir seletor">
         </div>
 
         <label for="schedule-time">Hora</label>
         <div class="wrapper-inTime">
           <img src="src/assets/icons/clock.svg" alt="Relógio">
-          <select id="schedule-time" aria-label="Selecionar hora" disabled></select>
+          <select id="schedule-time" aria-label="Selecionar hora" disabled required></select>
           <img src="src/assets/icons/arrow-down.svg" alt="Abrir seletor">
         </div>
 

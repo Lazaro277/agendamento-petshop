@@ -7,8 +7,9 @@ import { scheduleNew } from "../../services/schedule-new.js";
 import { scheduleLoadByDay } from "../schedules/load-by-day.js";
 const inTime = document.querySelector('#schedule-time');
 const inDate = document.querySelector('#schedule-date');
-import { scheduleDay } from "../schedules/load.js";
 import { showToast } from "../../utils/notification.js";
+import { scheduleDay } from "../schedules/load.js";
+import { hideModal } from "../../utils/modal.js";
 const form = document.querySelector("form")
 import dayjs from "dayjs";
 
@@ -32,6 +33,21 @@ form.onsubmit = async (event) => {
   // evita reload na pagina
   event.preventDefault()
 
+  // captura o horário selecionado antes de recarregar as options
+  const hourSelected = inTime.value
+
+  // desabilita o botao enquanto a requisição é feita para evitar agendamentos duplicados
+  const submitButton = form.querySelector('button[type="submit"]')
+
+  if (submitButton.disabled) return
+
+  submitButton.disabled = true
+
+  if (!await scheduleDay()) {
+    showToast('danger', 'Sem conexão com o servidor, não é possível agendar')
+    return
+  }
+
   try {
     let isValid = true
 
@@ -47,11 +63,7 @@ form.onsubmit = async (event) => {
     const numberValid = numberRegex.test(tutorNumber);
 
     // recupera a descrição do atendimento
-    const description = inDescription.value
-
-    //recupera a hora selecionada
-    const hourSelected = inTime.value
-
+    const description = inDescription.value.trim()
 
     // verifica os campos do form
     if (!tutorName) {
@@ -73,14 +85,15 @@ form.onsubmit = async (event) => {
 
     if (isValid) {
 
-      //recupera somente a hora 
-      const [hour] = hourSelected.split(':')
-
-      // combina a data e o horário selecionados no fuso local
-      const when = dayjs(`${inDate.value}T${hourSelected}`)
+      // combina a data e o horário selecionados sem aplicar conversão de fuso horário
+      const when = `${inDate.value}T${hourSelected}:00`
 
       // envias o agendamento para a api
       await scheduleNew({ tutorName, petName, tutorNumber, description, when })
+
+      // Data atual para o input
+      const inputToday = dayjs(new Date()).format('YYYY-MM-DD')
+      inDate.value = inputToday;
 
       // recarrega datas e horarios
       await scheduleDay()
@@ -92,15 +105,14 @@ form.onsubmit = async (event) => {
       inTutorNumber.value = ''
       inDescription.value = ''
 
-
-      // Data atual para o input
-      const inputToday = dayjs(new Date()).format('YYYY-MM-DD')
-      inDate.value = inputToday;
+      hideModal()
     }
 
   } catch (error) {
     showToast('danger', 'Não foi possível realizar o agendamento')
     console.log(error)
+  } finally {
+    submitButton.disabled = false
   }
 }
 

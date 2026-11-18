@@ -7,8 +7,27 @@ const scheduleDate = document.querySelector('#schedule-date')
 export async function scheduleDay() {
   // obtem a data do input
   const date = scheduleDate.value
-  const dailySchedules = await scheduleFetchByDay({ dateSelected: date })
 
-  // redenriza as horas disponiveis
-  hoursLoad({ date, dailySchedules })
+  try {
+    const dailySchedules = await scheduleFetchByDay({ dateSelected: date })
+
+    // renderiza as horas disponíveis
+    hoursLoad({ date, dailySchedules })
+
+    return true
+
+  } catch (error) {
+    const inTime = document.querySelector('#schedule-time')
+
+    inTime.innerHTML = ''
+
+    const option = document.createElement('option')
+    option.value = ''
+    option.textContent = 'Não foi possível carregar os horários.'
+
+    inTime.append(option)
+    inTime.disabled = true
+
+    return false
+  }
 }

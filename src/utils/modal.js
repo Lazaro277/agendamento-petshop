@@ -25,3 +25,7 @@ document.addEventListener('keydown', (event) => {
     modal.classList.add('modal-hide')
   }
 })
+
+export function hideModal() {
+  modal.classList.add('modal-hide')
+}

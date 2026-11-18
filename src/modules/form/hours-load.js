@@ -1,5 +1,6 @@
 import dayjs from "dayjs";
 import { openingHours } from "../../utils/opening-hours.js";
+import { scheduleTime } from "../../utils/schedule-date-time.js";
 const inTime = document.querySelector('#schedule-time');
 const wrapperInTime = document.querySelector('.wrapper-inTime');
 
@@ -17,7 +18,7 @@ function handleTimeWrapperClick(event) {
 export function hoursLoad({ date, dailySchedules }) {
   // se exixte um agendamento com a hora, ela não vai ser criada
   // obtem a lista dos horarios ocupados
-  const unavailableHours = dailySchedules.map((schedule) => dayjs(schedule.when).format("HH:mm"))
+  const unavailableHours = dailySchedules.map((schedule) => scheduleTime(schedule.when))
 
   const opening = openingHours.map((hour) => {
     // adiciona a hora na date e verifica se já passou

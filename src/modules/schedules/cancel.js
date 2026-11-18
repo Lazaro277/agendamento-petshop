@@ -28,15 +28,19 @@ periods.forEach((period) => {
 
         if (!confirmed) return
 
-        console.log(confirmed)
         // confirma se o usuário quer cancelar
         if (confirmed) {
           // faz a requisição na API para cancelar
-          await scheduleCancel({ id })
+          try {
+            await scheduleCancel({ id })
 
-          // recarrega a lista de agendamentos na tela e os horarios disponiveis
-          scheduleLoadByDay()
-          scheduleDay()
+            // recarrega a lista e os horários disponíveis
+            await scheduleLoadByDay()
+            await scheduleDay()
+
+          } catch (error) {
+            console.log(error)
+          }
         }
       }
     }

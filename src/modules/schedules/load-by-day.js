@@ -8,11 +8,22 @@ export async function scheduleLoadByDay() {
   // obtem a data do input
   const dateSelected = selectedDate.value
 
-  // busca na API os agendamentos
-  const dailySchedules = await scheduleFetchByDay({ dateSelected })
+  try {
+    // busca na API os agendamentos
+    const dailySchedules = await scheduleFetchByDay({ dateSelected })
 
-  // exibe os agendamentos
-  schedulesShow({ dailySchedules })
+    // exibe os agendamentos
+    schedulesShow({ dailySchedules })
 
-  return dailySchedules
+    return dailySchedules
+
+  } catch (error) {
+    // informa que não foi possível carregar os agendamentos
+    const periodBodies = document.querySelectorAll('.period-body')
+
+    periodBodies.forEach((period) => {
+      period.textContent = 'Não foi possível carregar os agendamentos. Verifique a conexão com o servidor.'
+      period.style.textAlign = 'center'
+    })
+  }
 }
