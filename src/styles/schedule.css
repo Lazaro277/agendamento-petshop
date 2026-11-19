@@ -71,7 +71,8 @@
       display: flex;
 
       .scheduling-description {
-        margin-left: 10rem;
+        position: absolute;
+        left: 23rem;
       }
 
       .remove-scheduling {
