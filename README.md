@@ -10,8 +10,8 @@ O projeto foi desenvolvido utilizando JavaScript, HTML e CSS, com integração a
 
 ## 📌 Demonstração
 
-- **Documentação e instruções de execução:** [Acessar GitHub Pages](https://lazaro277.github.io/agendamento-petshop/)
-- **Código-fonte:** [GitHub — agendamento-petshop](https://github.com/Lazaro277/agendamento-petshop)
+- **Documentação e instruções de execução:** [Acessar](https://lazarom.dev/agendamento-petshop/)
+- **Código-fonte:** [GitHub](https://github.com/Lazaro277/agendamento-petshop)
 
 > A aplicação utiliza uma API local. O GitHub Pages hospeda a documentação do projeto, não a aplicação funcional.
 
@@ -230,5 +230,5 @@ Estudante de Engenharia de Software e desenvolvedor em formação, interessado e
 ---
 
 <p align="center">
-  Desenvolvido por <strong>Lázaro Messias</strong> 🐾
+  Desenvolvido por <strong>Lázaro Messias</strong>
 </p>
