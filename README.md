@@ -1,4 +1,4 @@
-# <img src="src/assets/images/dog.svg" alt="Dog" width="1rem"> Mundo Pet — Sistema de Agendamento
+# <img src="src/assets/images/dog.svg" alt="Dog" width="20rem"> Mundo Pet — Sistema de Agendamento
 
 Aplicação web desenvolvida para facilitar o gerenciamento de agendamentos de um pet shop, permitindo organizar atendimentos, consultar horários disponíveis, cadastrar novos serviços e cancelar agendamentos.
 
