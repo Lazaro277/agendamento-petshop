@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Documentação do Mundo Pet: instruções para instalar, configurar e executar o projeto localmente.">
+  <meta name="theme-color" content="#15151d">
+  <title>Executar o Mundo Pet | Documentação</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #15151d;
+      --surface: #22222b;
+      --surface-2: #292934;
+      --text: #f5f3ff;
+      --muted: #aaa8bd;
+      --purple: #9580ff;
+      --purple-dark: #7660e8;
+      --border: #3a3946;
+      --green: #70d6a0;
+      --code: #171720;
+      --radius: 14px;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--purple);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .topbar {
+      border-bottom: 1px solid var(--border);
+      background: rgba(21, 21, 29, .94);
+    }
+
+    .topbar-inner,
+    main,
+    footer {
+      width: min(1080px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .topbar-inner {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      background: url(./assets/logo.svg) no-repeat center/cover;
+      width: 9rem;
+      height: 3.5rem;
+      text-indent: -2000px;
+
+    }
+
+    .top-link {
+      font-size: .92rem;
+      color: var(--muted);
+    }
+
+    .hero {
+      padding: 68px 0 42px;
+    }
+
+    .eyebrow {
+      color: var(--purple);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin: 12px 0;
+      font-size: clamp(2.2rem, 6vw, 3.7rem);
+      line-height: 1.1;
+      letter-spacing: -.04em;
+    }
+
+    .hero p {
+      max-width: 720px;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 18px;
+      border-radius: 9px;
+      background: var(--purple);
+      color: #17151f;
+      font-weight: 750;
+    }
+
+    .button:hover {
+      background: #a99aff;
+      text-decoration: none;
+    }
+
+    .button.secondary {
+      color: var(--text);
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+    }
+
+    .notice {
+      margin: 14px 0 34px;
+      padding: 18px 20px;
+      border: 1px solid rgba(149, 128, 255, .4);
+      border-left: 4px solid var(--purple);
+      border-radius: 10px;
+      background: rgba(149, 128, 255, .08);
+      color: #d9d3ff;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 245px minmax(0, 1fr);
+      gap: 42px;
+      align-items: start;
+      padding-bottom: 70px;
+    }
+
+    aside {
+      position: sticky;
+      top: 24px;
+      padding: 20px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    aside strong {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    aside a {
+      display: block;
+      padding: 6px 0;
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    aside a:hover {
+      color: var(--purple);
+    }
+
+    section {
+      scroll-margin-top: 24px;
+      margin-bottom: 46px;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: 1.65rem;
+      letter-spacing: -.02em;
+    }
+
+    h3 {
+      margin: 25px 0 8px;
+      font-size: 1.08rem;
+    }
+
+    p,
+    li {
+      color: #c4c1d1;
+    }
+
+    ul,
+    ol {
+      padding-left: 22px;
+    }
+
+    li {
+      margin: 7px 0;
+    }
+
+    .steps {
+      display: grid;
+      gap: 14px;
+      counter-reset: step;
+    }
+
+    .step {
+      position: relative;
+      padding: 19px 20px 18px 62px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+
+    .step::before {
+      counter-increment: step;
+      content: counter(step);
+      position: absolute;
+      left: 19px;
+      top: 19px;
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: #17151f;
+      background: var(--purple);
+      font-weight: 800;
+    }
+
+    .step h3 {
+      margin: 0 0 7px;
+    }
+
+    .step p {
+      margin: 5px 0;
+    }
+
+    pre {
+      position: relative;
+      overflow-x: auto;
+      margin: 12px 0;
+      padding: 16px 18px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--code);
+      color: #e8e4ff;
+      font: .91rem/1.65 Consolas, "Courier New", monospace;
+    }
+
+    code {
+      padding: 2px 6px;
+      border-radius: 5px;
+      background: var(--code);
+      color: #d9d1ff;
+      font-family: Consolas, "Courier New", monospace;
+      font-size: .92em;
+    }
+
+    .terminal-note {
+      padding: 13px 16px;
+      border-radius: 9px;
+      background: rgba(112, 214, 160, .08);
+      border: 1px solid rgba(112, 214, 160, .25);
+      color: #b8edcf;
+    }
+
+    figure {
+      margin: 22px 0;
+      padding: 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+
+    figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 7px;
+    }
+
+    figcaption {
+      padding: 10px 5px 3px;
+      color: var(--muted);
+      font-size: .88rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .card {
+      padding: 17px;
+      border-radius: 11px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+    }
+
+    .card strong {
+      display: block;
+      color: var(--text);
+    }
+
+    .card span {
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    .warning {
+      padding: 16px 18px;
+      border-radius: 10px;
+      background: rgba(255, 190, 92, .08);
+      border: 1px solid rgba(255, 190, 92, .3);
+    }
+
+    footer {
+      padding: 25px 0 40px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    @media (max-width: 760px) {
+      .layout {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+
+      aside {
+        position: static;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 48px;
+      }
+    }
+
+    @media (max-width: 460px) {
+
+      .topbar-inner,
+      main,
+      footer {
+        width: min(100% - 28px, 1080px);
+      }
+
+      .top-link {
+        font-size: .8rem;
+      }
+
+      .step {
+        padding-left: 55px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#inicio">Mundo Pet</a>
+      <a class="top-link" href="https://github.com/Lazaro277/agendamento-petshop" target="_blank"
+        rel="noopener noreferrer">Repositório no GitHub ↗</a>
+    </div>
+  </div>
+
+  <main id="inicio">
+    <header class="hero">
+      <div class="eyebrow">Documentação do projeto</div>
+      <h1>Como executar o Mundo Pet</h1>
+      <p>Veja como preparar o ambiente, instalar as dependências e iniciar a aplicação de agendamento de atendimentos
+        para pet shop em sua máquina.</p>
+      <div class="hero-actions">
+        <a class="button" href="#instalacao">Começar instalação</a>
+        <a class="button secondary" href="https://github.com/Lazaro277/agendamento-petshop" target="_blank"
+          rel="noopener noreferrer">Ver código-fonte</a>
+      </div>
+    </header>
+
+    <div class="notice">
+      <strong>Importante:</strong> esta página está hospedada no GitHub Pages apenas como documentação. A aplicação
+      Mundo Pet utiliza uma API local com JSON Server; por isso, para utilizar suas funcionalidades, siga os passos
+      abaixo em seu computador.
+    </div>
+
+    <div class="layout">
+      <aside aria-label="Navegação da documentação">
+        <strong>Nesta página</strong>
+        <a href="#sobre">Sobre o projeto</a>
+        <a href="#requisitos">Requisitos</a>
+        <a href="#instalacao">Instalação</a>
+        <a href="#executar">Executar a aplicação</a>
+        <a href="#uso">Utilização</a>
+        <a href="#estrutura">Estrutura e dados</a>
+        <a href="#problemas">Problemas comuns</a>
+      </aside>
+
+      <div class="content">
+        <section id="sobre">
+          <h2>Sobre o projeto</h2>
+          <p>O Mundo Pet é uma aplicação web para organizar os atendimentos de um pet shop. A interface permite
+            visualizar os agendamentos por data e período do dia, cadastrar novos atendimentos e cancelar agendamentos
+            existentes.</p>
+          <div class="cards">
+            <div class="card"><strong>Agenda por períodos</strong><span>Visualização separada em manhã, tarde e
+                noite.</span></div>
+            <div class="card"><strong>Novo agendamento</strong><span>Cadastro dos dados do tutor, do pet e do
+                serviço.</span></div>
+            <div class="card"><strong>Horários disponíveis</strong><span>Os horários ocupados ou que já passaram não são
+                oferecidos.</span></div>
+            <div class="card"><strong>Cancelamento</strong><span>Remoção de agendamentos existentes.</span></div>
+          </div>
+
+          <figure>
+            <img src="./assets/tela-principal.png"
+              alt="Tela principal do Mundo Pet, com agendamentos organizados por manhã, tarde e noite" loading="lazy">
+            <figcaption>Tela principal: agenda organizada por data e período.</figcaption>
+          </figure>
+          <figure>
+            <img src="./assets/novo-agendamento.png" alt="Janela de cadastro de um novo atendimento no Mundo Pet"
+              loading="lazy">
+            <figcaption>Formulário para cadastrar um novo atendimento.</figcaption>
+          </figure>
+        </section>
+
+        <section id="requisitos">
+          <h2>Requisitos</h2>
+          <p>Antes de começar, instale os seguintes programas:</p>
+          <ul>
+            <li><strong>Node.js (versão LTS):</strong> ambiente necessário para executar as ferramentas do projeto.</li>
+            <li><strong>npm:</strong> gerenciador de pacotes instalado junto com o Node.js.</li>
+            <li><strong>Git:</strong> necessário para clonar o repositório (ou baixe o projeto em ZIP pelo GitHub).</li>
+            <li><strong>Editor de código:</strong> recomendado para consultar os arquivos, por exemplo, Visual Studio
+              Code.</li>
+          </ul>
+          <p>Para conferir se Node.js e npm estão instalados, abra o terminal e execute:</p>
+          <pre><code>node -v
+ npm -v</code></pre>
+          <p>Se os comandos exibirem os números das versões instaladas, o ambiente está pronto para continuar.</p>
+        </section>
+
+        <section id="instalacao">
+          <h2>Instalação</h2>
+          <div class="steps">
+            <div class="step">
+              <h3>Clone o repositório</h3>
+              <p>No terminal, escolha uma pasta para armazenar o projeto e execute:</p>
+              <pre><code>git clone https://github.com/Lazaro277/agendamento-petshop.git</code></pre>
+              <p>Entre na pasta criada:</p>
+              <pre><code>cd agendamento-petshop</code></pre>
+            </div>
+            <div class="step">
+              <h3>Instale as dependências</h3>
+              <p>Com o terminal aberto dentro da pasta do projeto, execute:</p>
+              <pre><code>npm install</code></pre>
+              <p>O npm fará a instalação das dependências declaradas no <code>package.json</code>. Aguarde a conclusão
+                antes de iniciar os servidores.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="executar">
+          <h2>Executar a aplicação</h2>
+          <p>O projeto precisa de dois processos em execução: o JSON Server, que fornece a API local, e o servidor de
+            desenvolvimento do Webpack, que disponibiliza a interface web.</p>
+          <div class="steps">
+            <div class="step">
+              <h3>Inicie a API (JSON Server)</h3>
+              <p>Abra um terminal na pasta do projeto e execute:</p>
+              <pre><code>npm run server</code></pre>
+              <p>Esse comando inicia a API na porta <code>3333</code>. Mantenha esse terminal aberto.</p>
+            </div>
+            <div class="step">
+              <h3>Inicie a aplicação</h3>
+              <p>Abra uma segunda janela de terminal, novamente dentro da pasta do projeto, e execute:</p>
+              <pre><code>npm run dev</code></pre>
+              <p>O Webpack iniciará o servidor de desenvolvimento. Acesse no navegador o endereço:</p>
+              <pre><code>http://localhost:3000</code></pre>
+            </div>
+          </div>
+          <div class="terminal-note"><strong>Os dois terminais devem permanecer abertos.</strong> O primeiro mantém a
+            API ativa; o segundo mantém a aplicação disponível no navegador.</div>
+        </section>
+
+        <section id="uso">
+          <h2>Como utilizar</h2>
+          <ol>
+            <li>Na tela principal, selecione a data desejada para consultar os atendimentos.</li>
+            <li>Clique em <strong>Novo Agendamento</strong> para abrir o formulário.</li>
+            <li>Informe o nome do tutor, nome do pet, telefone e descrição do serviço.</li>
+            <li>Selecione a data e escolha um dos horários disponíveis.</li>
+            <li>Clique em <strong>Agendar</strong> para salvar o atendimento.</li>
+            <li>Para remover um atendimento, utilize a opção <strong>Remover agendamento</strong> e confirme o
+              cancelamento.</li>
+          </ol>
+          <p>Os agendamentos são apresentados separados em manhã, tarde e noite, em ordem cronológica dentro de cada
+            período.</p>
+        </section>
+
+        <section id="estrutura">
+          <h2>Estrutura e armazenamento dos dados</h2>
+          <p>O projeto utiliza o arquivo <code>server.json</code> como base de dados local do JSON Server. Os registros
+            são armazenados nesse arquivo durante a execução local.</p>
+          <p>A configuração da URL da API fica em <code>src/services/api-config.js</code>, atualmente apontando para
+            <code>http://localhost:3333</code>.
+          </p>
+          <p>Os principais comandos disponíveis no projeto são:</p>
+          <pre><code>npm run dev      # inicia o servidor de desenvolvimento
+ npm run server   # inicia a API local
+ npm run build    # gera a versão de produção na pasta dist</code></pre>
+          <div class="warning"><strong>Sobre os dados:</strong> esta configuração é voltada à execução local e
+            demonstração do projeto. O GitHub Pages não executa o JSON Server nem disponibiliza essa API local para
+            visitantes.</div>
+        </section>
+
+        <section id="problemas">
+          <h2>Problemas comuns</h2>
+          <h3>O comando npm não é reconhecido</h3>
+          <p>Verifique se o Node.js foi instalado corretamente. Feche e abra novamente o terminal após a instalação e
+            confira com <code>node -v</code> e <code>npm -v</code>.</p>
+          <h3>A aplicação não carrega os agendamentos</h3>
+          <p>Confirme se o terminal do JSON Server continua aberto e se a API está disponível em
+            <code>http://localhost:3333</code>.
+          </p>
+          <h3>A porta já está em uso</h3>
+          <p>Verifique se outro processo já está utilizando a porta <code>3000</code> ou <code>3333</code>. Encerre a
+            execução anterior, se houver, antes de iniciar novamente.</p>
+          <h3>Como encerrar os servidores?</h3>
+          <p>Em cada terminal, pressione <code>Ctrl + C</code>.</p>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p><strong>Mundo Pet</strong> · Projeto desenvolvido por Lázaro Messias.</p>
+    <p><a href="https://github.com/Lazaro277/agendamento-petshop" target="_blank" rel="noopener noreferrer">Acessar
+        repositório no GitHub</a></p>
+  </footer>
+</body>
+
+</html>
