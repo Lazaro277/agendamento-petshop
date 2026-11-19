@@ -13,8 +13,13 @@ export function schedulesShow({ dailySchedules }) {
     periodAfternoon.innerHTML = ''
     periodNight.innerHTML = ''
 
-    // redenriza os agendamentos por periodo
-    dailySchedules.forEach((schedule) => {
+    // ordena os agendamentos pelo horário
+    const orderedSchedules = [...dailySchedules].sort(
+      (a, b) => new Date(a.when).getTime() - new Date(b.when).getTime()
+    )
+
+    // renderiza os agendamentos por periodo
+    orderedSchedules.forEach((schedule) => {
       // cria os elementos
       const scheduleItem = document.createElement('div')
       const scheduleTime = document.createElement('span')
